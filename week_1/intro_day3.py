@@ -17,17 +17,14 @@ class Course(object):
     """
     This is a blueprint for course information
     """
-    def __init__(self, course_name, course_code):
+    def __init__(self, course_name, course_code, lecturer):
         self.course_name = course_name
-        self.course_code = int (course_code)
+        self.lecturer = lecturer
+        self.course_code =  course_code
         self.assignments = list()
 
-
-    def print_information(self):
-        """
-        This function returns a course's information
-        """
-        return "{}: {}".format(self.course_code, self.course_name)
+    def __repr__(self):
+        return "{}: {}".format(self.course_name, self.lecturer)
 
     def add_assessment(self, lecturer, date):
         """
@@ -52,3 +49,6 @@ class Course(object):
 
 student_1 = Student("Thapelo", "Seletisha", "1234567")
 print(student_1)
+
+course_obj = Course("Linear Algebra", "MATH2025", "Genius")
+print(course_obj)
