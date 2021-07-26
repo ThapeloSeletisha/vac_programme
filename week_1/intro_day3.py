@@ -38,6 +38,31 @@ class Course(object):
         r  = Assessment(lecturer, date)
         self.assignments.add(r)
 
+class Question(object):
+    """
+    A blueprint for storing a question and its answer
+    """
+    def __init__(self, question_statement, correct_answer):
+        self.question_statement = question_statement
+        self.correct_answer = correct_answer
+
+    def __repr__(self):
+        return "{} {}".format(self.question_statement, self.correct_answer)
+
+    def get_ask_and_evaluate(self):
+        """
+        This method prints the question and
+        accepts the solution from the student.
+        It returns true if the students gets the correct answer
+        Else return false
+        """
+        print(self.question_statement)
+        user_solution = input ("")
+        if user_solution == self.correct_answer:
+            return True
+        else:
+            return False
+
 # student_1 = Student("Thapelo", "Seletisha", "1234567")
 # student_demo_1 = student_1.print_demographic()
 # print(student_demo_1)
@@ -52,3 +77,7 @@ print(student_1)
 
 course_obj = Course("Linear Algebra", "MATH2025", "Genius")
 print(course_obj)
+
+question_obj = Question("Was Mandela born on the 18th of July, 1950", "False")
+print(question_obj)
+question_1 = question_obj.get_ask_and_evaluate()
