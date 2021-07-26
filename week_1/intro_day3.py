@@ -1,39 +1,17 @@
-"""
-Student
- - First name
- - Last name
- - Student number
-
-Course
- - Course name
- - Course code  
- 
-Assessment
- - Questions 10
- - Marks
- - Date
- - Lecturer
- - Answers
-
-Exam : Student, Course, Assessment
-"""
-
 class Student(object):
     """
     This is a blueprint for the student demographic data
     """
     
-    def __init__(self, student_firstname, student_lastname,student_number):
-        self.student_firstname =  student_firstname
-        self.student_lastname = student_lastname
+    def __init__(self, firstname, lastname,student_number):
+        self.firstname =  firstname
+        self.lastname = lastname
         self.student_number = int(student_number)
 
-    def print_demographic(self):
+    def __repr__(self):
         """
-        This is the function that returns students demographic data
         """
-
-        return "{} {}".format(self.student_firstname, self.student_lastname)
+        return "{} {}".format(self.firstname, self.lastname)
     
 class Course(object):
     """
@@ -63,11 +41,14 @@ class Course(object):
         r  = Assessment(lecturer, date)
         self.assignments.add(r)
 
+# student_1 = Student("Thapelo", "Seletisha", "1234567")
+# student_demo_1 = student_1.print_demographic()
+# print(student_demo_1)
+
+
+# student_2 = Student("Teboho", "Molise", "24681012")
+# student_demo_2 = student_2.print_demographic()
+# print(student_demo_2)
+
 student_1 = Student("Thapelo", "Seletisha", "1234567")
-student_demo_1 = student_1.print_demographic()
-print(student_demo_1)
-
-
-student_2 = Student("Teboho", "Molise", "24681012")
-student_demo_2 = student_2.print_demographic()
-print(student_demo_2)
+print(student_1)
