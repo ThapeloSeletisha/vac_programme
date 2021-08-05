@@ -2,7 +2,6 @@ class Student(object):
     """
     This is a blueprint for the student demographic data
     """
-    
     def __init__(self, firstname, lastname,student_number):
         self.firstname =  firstname
         self.lastname = lastname
@@ -57,11 +56,25 @@ class Question(object):
         Else return false
         """
         print(self.question_statement)
-        user_solution = input ("")
+        user_solution = input("")
         if user_solution == self.correct_answer:
             return True
         else:
             return False
+
+class Assessment(object):
+    """
+    This is blueprint for asssignment details
+    """
+    def __init__(self, title, date):
+        self.title = title
+        self.date = date
+        self.questions = list()
+        self.marks = 0
+    
+    def __repr__(self):
+        pass
+
 
 # student_1 = Student("Thapelo", "Seletisha", "1234567")
 # student_demo_1 = student_1.print_demographic()
@@ -72,12 +85,15 @@ class Question(object):
 # student_demo_2 = student_2.print_demographic()
 # print(student_demo_2)
 
-student_1 = Student("Thapelo", "Seletisha", "1234567")
-print(student_1)
+# student_1 = Student("Thapelo", "Seletisha", "1234567")
+# print(student_1)
 
-course_obj = Course("Linear Algebra", "MATH2025", "Genius")
-print(course_obj)
+# course_obj = Course("Linear Algebra", "MATH2025", "Genius")
+# print(course_obj)
 
 question_obj = Question("Was Mandela born on the 18th of July, 1950", "False")
-print(question_obj)
 question_1 = question_obj.get_ask_and_evaluate()
+if (question_1):
+    print("The answer is correct")
+else:
+    print("The answer is incorrect")
