@@ -75,6 +75,15 @@ class Assessment(object):
     def __repr__(self):
         pass
 
+    def add_question(self, question):
+        """
+        Adds question to the questions list
+        """
+        questions.append(question)
+
+
+    
+
 
 # student_1 = Student("Thapelo", "Seletisha", "1234567")
 # student_demo_1 = student_1.print_demographic()
