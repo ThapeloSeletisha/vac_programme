@@ -79,7 +79,43 @@ class Assessment(object):
         """
         Adds question to the questions list
         """
-        questions.append(question)
+        self.questions.append(question)
+        self.marks += 1
+
+    def ask_and_evaluate(question):
+        """
+        Prints the question
+        Prompts student to answer the question
+        """
+        return question.get_ask_and_evaluate()
+
+    def administer(self):
+        """
+        Prints to the student that the assessment has started
+        Then asks and evaluates all the questions
+        """
+        print("The assessment has begun",
+             "\nPlease answer the questions sequentially")
+
+        total = 0
+        for question in self.questions:
+            if question.get_ask_and_evaluate():
+                total += 1
+        
+        percentage = 100 * total / self.marks
+        print("You marks are ", 
+               percentage,
+               "%")
+            
+
+
+q_1 = Question("How old is Jim Simons?", "82")
+
+ass3 = Assessment("Exam", "2021-05-24")
+
+ass3.add_question(q_1)
+
+ass3.administer()
 
 
     
@@ -100,9 +136,9 @@ class Assessment(object):
 # course_obj = Course("Linear Algebra", "MATH2025", "Genius")
 # print(course_obj)
 
-question_obj = Question("Was Mandela born on the 18th of July, 1950", "False")
-question_1 = question_obj.get_ask_and_evaluate()
-if (question_1):
-    print("The answer is correct")
-else:
-    print("The answer is incorrect")
+# question_obj = Question("Was Mandela born on the 18th of July, 1950", "False")
+# question_1 = question_obj.get_ask_and_evaluate()
+# if (question_1):
+#     print("The answer is correct")
+# else:
+#     print("The answer is incorrect")
